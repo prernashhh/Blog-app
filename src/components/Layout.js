@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useAuth } from '../contexts/AuthContext';
 import { useRouter } from 'next/router';
 
@@ -23,7 +24,7 @@ export default function Layout({ children, title = 'Truly IAS', description = 'A
             {/* Logo (no arrow) */}
             <div className="flex items-center h-16 px-4 border-b border-gray-100 flex-shrink-0 transition-all duration-300 relative bg-white">
               <Link href="/" className="flex items-center space-x-2 group flex-1">
-                <img src="/blog-logo.svg" alt="Truly IAS Logo" className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
+                <Image src="/blog-logo.svg" alt="Truly IAS Logo" width={36} height={36} className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
                 <span className="text-2xl font-bold transition-colors duration-300 group-hover:text-[#4DB6AC] text-[#333]">Truly IAS</span>
               </Link>
             </div>

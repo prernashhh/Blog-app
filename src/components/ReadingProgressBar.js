@@ -4,6 +4,7 @@ export default function ReadingProgressBar() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
     const calculateProgress = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -12,7 +13,6 @@ export default function ReadingProgressBar() {
     };
 
     window.addEventListener('scroll', calculateProgress);
-    
     // Calculate initial progress
     calculateProgress();
 
