@@ -1,33 +1,10 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import PostCard from '../components/PostCard';
+import React from 'react';
 
 export default function Home({ posts, error }) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [darkMode, setDarkMode] = useState(false);
-
-  // On mount, check localStorage for theme
-  useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      setDarkMode(true);
-      document.body.classList.add('dark');
-    }
-  }, []);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => {
-      const next = !prev;
-      if (next) {
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-      return next;
-    });
-  };
+  // Dark mode temporarily disabled for deployment
+  const [searchTerm, setSearchTerm] = React.useState('');
 
   // Filter posts based on search term
   const filteredPosts = posts?.filter(post =>
@@ -48,44 +25,11 @@ export default function Home({ posts, error }) {
 
   return (
     <div>
-      {/* Dark/Light Mode Toggle */}
-      <button
-        aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-        onClick={toggleDarkMode}
-        className={`fixed top-6 right-6 z-50 p-2 rounded-full shadow-lg border transition-all duration-300 focus:outline-none
-          ${darkMode ? 'bg-[#23272e] border-[#333] hover:bg-[#181a20]' : 'bg-white border-gray-200 hover:bg-[#f5f5f5]'}`}
-        style={{ backdropFilter: 'blur(6px)' }}
-      >
-        {darkMode ? (
-          // Modern Moon icon
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#4DB6AC]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
-          </svg>
-        ) : (
-          // Modern Sun icon
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#FF8A65]" fill="currentColor" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="5" />
-            <g stroke="#FF8A65" strokeWidth="2">
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </g>
-          </svg>
-        )}
-      </button>
+      {/* Dark/Light Mode Toggle removed for deployment */}
       {/* Hero Section */}
       <section
-        className={`relative border-b animate-fade-in overflow-hidden transition-colors duration-500
-          ${darkMode
-            ? 'bg-gradient-to-br from-[#181a20] via-[#23272e] to-[#23272e] border-[#23272e]'
-            : 'bg-gradient-to-br from-[#e0eafc] via-[#f9f6ff] to-[#f5f5f5] border-gray-100'}
-        `}
-        style={!darkMode ? { background: 'linear-gradient(135deg, #e0eafc 0%, #f9f6ff 50%, #f5f5f5 100%)' } : {}}
+        className="relative border-b animate-fade-in overflow-hidden bg-gradient-to-br from-[#e0eafc] via-[#f9f6ff] to-[#f5f5f5] border-gray-100"
+        style={{ background: 'linear-gradient(135deg, #e0eafc 0%, #f9f6ff 50%, #f5f5f5 100%)' }}
       >
         {/* Floating SVG Accent */}
         <svg
@@ -96,23 +40,19 @@ export default function Home({ posts, error }) {
             cx="200"
             cy="200"
             r="200"
-            fill={darkMode ? '#4DB6AC' : '#4DB6AC'}
-            fillOpacity={darkMode ? '0.10' : '0.18'}
+            fill="#4DB6AC"
+            fillOpacity="0.18"
           />
         </svg>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
           <h1
-            className={`text-5xl md:text-6xl lg:text-7xl font-extrabold mb-7 animate-slide-down tracking-tight drop-shadow-xl transition-colors duration-500
-              ${darkMode ? 'text-[#f5f5f5]' : 'text-[#222]'}
-            `}
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-7 animate-slide-down tracking-tight drop-shadow-xl text-[#222]"
             style={{fontFamily: 'Inter, Segoe UI, sans-serif'}}
           >
             Welcome to <span className="bg-gradient-to-r from-[#4DB6AC] to-[#FF8A65] bg-clip-text text-transparent">Truly IAS</span>
           </h1>
           <p
-            className={`text-2xl mb-10 max-w-3xl mx-auto animate-fade-in font-light transition-colors duration-500
-              ${darkMode ? 'text-gray-300' : 'text-gray-700'}
-            `}
+            className="text-2xl mb-10 max-w-3xl mx-auto animate-fade-in font-light text-gray-700"
           >
             Discover insightful articles, tutorials, and thoughts on web development, technology, and creative coding.
           </p>
@@ -124,11 +64,7 @@ export default function Home({ posts, error }) {
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className={`w-full px-5 py-4 pl-14 rounded-2xl focus:ring-2 focus:ring-[#4DB6AC] focus:border-transparent outline-none transition-all shadow-lg hover:shadow-2xl text-lg transition-colors duration-500
-                  ${darkMode
-                    ? 'bg-[#23272e]/90 border-[#333] text-[#f5f5f5] placeholder-gray-400'
-                    : 'bg-white/80 border-gray-200 text-[#222] placeholder-gray-500'}
-                `}
+                className="w-full px-5 py-4 pl-14 rounded-2xl focus:ring-2 focus:ring-[#4DB6AC] focus:border-transparent outline-none transition-all shadow-lg hover:shadow-2xl text-lg bg-white/80 border-gray-200 text-[#222] placeholder-gray-500"
                 style={{backdropFilter: 'blur(6px)'}}
               />
               <svg
@@ -146,10 +82,8 @@ export default function Home({ posts, error }) {
 
       {/* Posts Section */}
       <section
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20 transition-colors duration-500
-          ${darkMode ? 'bg-[#23272e]' : 'bg-[#f7f7fa]'}
-        `}
-        style={!darkMode ? { background: '#f7f7fa', boxShadow: '0 8px 32px 0 rgba(77,182,172,0.04)' } : {}}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20 bg-[#f7f7fa]"
+        style={{ background: '#f7f7fa', boxShadow: '0 8px 32px 0 rgba(77,182,172,0.04)' }}
       >
         {filteredPosts.length === 0 ? (
           <div className="text-center py-12">

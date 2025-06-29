@@ -1,49 +1,11 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
 export default function About() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      setDarkMode(true);
-      document.body.classList.add('dark');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => {
-      const next = !prev;
-      if (next) {
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-      return next;
-    });
-  };
+  // Dark mode temporarily disabled for deployment
 
   return (
     <>
-      <button
-        aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-        onClick={toggleDarkMode}
-        className="fixed top-6 right-6 z-50 p-2 rounded-full bg-white/80 dark:bg-[#23272e]/80 shadow hover:scale-110 transition-all border border-gray-200 dark:border-[#23272e]"
-        style={{ backdropFilter: 'blur(4px)' }}
-      >
-        {darkMode ? (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#4DB6AC]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
-          </svg>
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#FF8A65]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 6.66l-.71-.71M4.05 4.05l-.71-.71" />
-            <circle cx="12" cy="12" r="5" stroke="#FF8A65" strokeWidth="2" fill="none" />
-          </svg>
-        )}
-      </button>
+      {/* Dark/Light Mode Toggle removed for deployment */}
 
       <div className="relative min-h-screen bg-gradient-to-br from-[#e0eafc] via-[#f9f6ff] to-[#f5f5f5] flex items-center justify-center py-16">
         <div className="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +15,7 @@ export default function About() {
             </h1>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="text-xl mb-6 font-light">
-                Welcome to our blog! We're passionate about sharing insights, tutorials, and thoughts on web development, technology, and creative coding.
+                {`Welcome to our blog! We're passionate about sharing insights, tutorials, and thoughts on web development, technology, and creative coding.`}
               </p>
 
               <h2 className="text-2xl font-bold text-[#4DB6AC] mt-8 mb-4">Our Mission</h2>

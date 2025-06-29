@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-// import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useRouter } from 'next/router';
 
@@ -17,15 +16,15 @@ export default function Layout({ children, title = 'Truly IAS', description = 'A
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="min-h-screen flex transition-colors duration-500 bg-[#F5F5F5] dark:bg-[#181a20]" id="__trulyias-root">
+      <div className="min-h-screen flex bg-[#F5F5F5]" id="__trulyias-root">
         {/* Sidebar - Collapsible */}
-        <aside className="fixed inset-y-0 left-0 w-64 bg-white dark:bg-[#23272e] shadow-lg border-r border-gray-100 dark:border-[#23272e] z-50 transition-colors duration-500" id="__trulyias-sidebar">
+        <aside className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg border-r border-gray-100 z-50" id="__trulyias-sidebar">
           <div className="flex flex-col h-full overflow-y-auto">
             {/* Logo (no arrow) */}
-            <div className="flex items-center h-16 px-4 border-b border-gray-100 dark:border-[#23272e] flex-shrink-0 transition-all duration-300 relative bg-white dark:bg-[#23272e]">
+            <div className="flex items-center h-16 px-4 border-b border-gray-100 flex-shrink-0 transition-all duration-300 relative bg-white">
               <Link href="/" className="flex items-center space-x-2 group flex-1">
                 <img src="/blog-logo.svg" alt="Truly IAS Logo" className="w-9 h-9 transition-transform duration-300 group-hover:scale-110" />
-                <span className="text-2xl font-bold transition-colors duration-300 group-hover:text-[#4DB6AC] text-[#333] dark:text-[#f5f5f5]">Truly IAS</span>
+                <span className="text-2xl font-bold transition-colors duration-300 group-hover:text-[#4DB6AC] text-[#333]">Truly IAS</span>
               </Link>
             </div>
             {/* Navigation */}
@@ -34,10 +33,9 @@ export default function Layout({ children, title = 'Truly IAS', description = 'A
                 <Link 
                   href="/" 
                   className="flex items-center py-3 px-4 font-medium group rounded-lg transition-all duration-300
-                    text-[#333333] dark:text-[#f5f5f5] hover:text-[#4DB6AC] dark:hover:text-[#4DB6AC]
-                    hover:bg-gray-50 dark:hover:bg-[#23272e]/70 bg-white dark:bg-[#23272e]"
+                    text-[#333333] hover:text-[#4DB6AC] hover:bg-gray-50 bg-white"
                 >
-                  <svg className="w-6 h-6 text-gray-400 dark:text-gray-500 group-hover:text-[#4DB6AC] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-gray-400 group-hover:text-[#4DB6AC] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                   <span className="ml-3">Home</span>
@@ -45,10 +43,9 @@ export default function Layout({ children, title = 'Truly IAS', description = 'A
                 <Link 
                   href="/about" 
                   className="flex items-center py-3 px-4 font-medium group rounded-lg transition-all duration-300
-                    text-[#333333] dark:text-[#f5f5f5] hover:text-[#4DB6AC] dark:hover:text-[#4DB6AC]
-                    hover:bg-gray-50 dark:hover:bg-[#23272e]/70 bg-white dark:bg-[#23272e]"
+                    text-[#333333] hover:text-[#4DB6AC] hover:bg-gray-50 bg-white"
                 >
-                  <svg className="w-6 h-6 text-gray-400 dark:text-gray-500 group-hover:text-[#4DB6AC] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-gray-400 group-hover:text-[#4DB6AC] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="ml-3">About</span>
@@ -56,10 +53,9 @@ export default function Layout({ children, title = 'Truly IAS', description = 'A
                 <Link 
                   href="/contact" 
                   className="flex items-center py-3 px-4 font-medium group rounded-lg transition-all duration-300
-                    text-[#333333] dark:text-[#f5f5f5] hover:text-[#4DB6AC] dark:hover:text-[#4DB6AC]
-                    hover:bg-gray-50 dark:hover:bg-[#23272e]/70 bg-white dark:bg-[#23272e]"
+                    text-[#333333] hover:text-[#4DB6AC] hover:bg-gray-50 bg-white"
                 >
-                  <svg className="w-6 h-6 text-gray-400 dark:text-gray-500 group-hover:text-[#4DB6AC] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-gray-400 group-hover:text-[#4DB6AC] transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <span className="ml-3">Contact</span>
