@@ -11,7 +11,7 @@ export default function About() {
         <div className="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 md:p-12 animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-extrabold text-[#222] mb-8 tracking-tight" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}>
-              About Truly IAS
+              About BlogBase
             </h1>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="text-xl mb-6 font-light">
@@ -46,7 +46,7 @@ export default function About() {
 
               <div className="bg-[#f5f7fa] p-6 rounded-xl mt-8 border border-gray-100">
                 <p className="text-center text-[#4DB6AC] font-semibold">
-                  Thank you for reading Truly IAS! We hope you find our content helpful and engaging.
+                  Thank you for reading BlogBase! We hope you find our content helpful and engaging.
                 </p>
               </div>
             </div>

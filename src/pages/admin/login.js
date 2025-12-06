@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
+import Link from 'next/link'
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState('admin@myblog.com')
+  const [email, setEmail] = useState('admin@blogbase.com')
   const [password, setPassword] = useState('admin123')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -38,8 +39,24 @@ export default function AdminLogin() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#e0eafc] via-[#f9f6ff] to-[#f5f5f5] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full animate-fade-in">
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 px-8 py-10 md:px-12 md:py-14">
+          {/* Back Button */}
+          <Link href="/" className="inline-flex items-center text-gray-600 hover:text-[#4DB6AC] transition-colors mb-6 group">
+            <svg className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Home
+          </Link>
+          
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#4DB6AC] text-center mb-2 tracking-tight" style={{fontFamily: 'Inter, Segoe UI, sans-serif'}}>Admin Login</h2>
           <p className="text-center text-base text-gray-600 mb-8">Sign in to access the admin dashboard</p>
+          
+          {/* Default Credentials Info */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+            <p className="text-sm font-semibold text-blue-900 mb-2">Default Credentials:</p>
+            <p className="text-sm text-blue-800"><span className="font-medium">Email:</span> admin@blogbase.com</p>
+            <p className="text-sm text-blue-800"><span className="font-medium">Password:</span> admin123</p>
+          </div>
+          
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-5">
               <div>

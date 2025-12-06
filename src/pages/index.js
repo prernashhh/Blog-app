@@ -49,7 +49,7 @@ export default function Home({ posts, error }) {
             className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-7 animate-slide-down tracking-tight drop-shadow-xl text-[#222]"
             style={{fontFamily: 'Inter, Segoe UI, sans-serif'}}
           >
-            Welcome to <span className="bg-gradient-to-r from-[#4DB6AC] to-[#FF8A65] bg-clip-text text-transparent">Truly IAS</span>
+            Welcome to <span className="bg-gradient-to-r from-[#4DB6AC] to-[#FF8A65] bg-clip-text text-transparent">BlogBase</span>
           </h1>
           <p
             className="text-2xl mb-10 max-w-3xl mx-auto animate-fade-in font-light text-gray-700"
