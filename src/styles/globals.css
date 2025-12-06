@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Dark mode styles */
 .dark {
   --background: #181a20;
