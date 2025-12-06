@@ -10,6 +10,7 @@
     "seed": "node scripts/seed.js"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "cookie": "^1.0.2",
     "dotenv": "^17.0.0",
     "framer-motion": "^12.19.2",
